@@ -1,0 +1,14 @@
+{
+  "name": "ai-doodle-enhancer",
+  "version": "1.0.0",
+  "description": "AI-powered doodle enhancement tool",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site, no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["ai", "drawing", "enhancement", "doodle"],
+  "author": "Your Name",
+  "license": "MIT"
+}
