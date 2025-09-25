@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "ai-doodle-enhancer",
+  "name": "doodle-design",
   "builds": [
     {
       "src": "index.html",
