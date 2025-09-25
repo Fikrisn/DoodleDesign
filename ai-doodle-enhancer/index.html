@@ -530,136 +530,101 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>✨ AI Doodle Enhancer</h1>
-                <p class="hero-subtitle">Transform your simple sketches into beautiful, refined drawings with the power of artificial intelligence</p>
+                <h1>AI Doodle Enhancer</h1>
+                <p class="hero-subtitle">Transform your hand-drawn sketches into professional artwork with AI-powered enhancement</p>
                 <div class="hero-features">
-                    <div class="hero-feature">🎨 Smart Enhancement</div>
-                    <div class="hero-feature">⚡ Instant Results</div>
-                    <div class="hero-feature">💾 Easy Download</div>
-                    <div class="hero-feature">🚀 AI Powered</div>
+                    <div class="hero-feature">
+                        <span>🎨</span> AI-Powered Analysis
+                    </div>
+                    <div class="hero-feature">
+                        <span>✨</span> Instant Enhancement
+                    </div>
+                    <div class="hero-feature">
+                        <span>📱</span> Mobile Friendly
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Main Canvas Section -->
         <section class="canvas-section">
-            <h2 class="section-title">🖌️ Drawing Studio</h2>
-            
-            <!-- Toolbar -->
-            <div class="toolbar">
-                <div class="tool-group">
-                    <label for="colorPicker">Warna:</label>
-                    <input type="color" id="colorPicker" class="color-picker" value="#000000">
+            <h2 class="section-title">Create & Enhance Your Doodle</h2>
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <label class="canvas-label">Your Drawing</label>
+                    <canvas id="drawingCanvas" width="600" height="400"></canvas>
                 </div>
-                <div class="tool-group">
-                    <label for="brushSize">Ukuran:</label>
-                    <input type="range" id="brushSize" class="size-slider" min="1" max="20" value="5">
-                    <span class="size-display" id="sizeDisplay">5px</span>
-                </div>
-                <div class="tool-group">
-                    <label for="brushType">Tool:</label>
-                    <select id="brushType" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color);">
-                        <option value="brush">🖌️ Brush</option>
-                        <option value="eraser">🧹 Eraser</option>
-                    </select>
+                <div class="canvas-wrapper">
+                    <label class="canvas-label">AI Enhanced</label>
+                    <canvas id="enhancedCanvas" width="600" height="400"></canvas>
                 </div>
             </div>
 
-            <!-- Canvas Container -->
-            <div class="canvas-container">
-                <div class="canvas-wrapper">
-                    <div class="canvas-label">
-                        <span>📝</span>
-                        <span>Your Sketch</span>
-                    </div>
-                    <canvas id="drawingCanvas" width="500" height="400"></canvas>
-                    <div class="loading-overlay" id="canvasLoading">
-                        <div class="loading-content">
-                            <div class="loading-spinner"></div>
-                            <p>Processing your sketch...</p>
-                        </div>
-                    </div>
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="tool-group">
+                    <label for="colorPicker">Color:</label>
+                    <input type="color" id="colorPicker" value="#000000">
                 </div>
-                
-                <div class="canvas-wrapper">
-                    <div class="canvas-label">
-                        <span>✨</span>
-                        <span>AI Enhanced Version</span>
-                    </div>
-                    <canvas id="enhancedCanvas" width="500" height="400"></canvas>
-                    <div class="loading-overlay" id="enhancedLoading">
-                        <div class="loading-content">
-                            <div class="loading-spinner"></div>
-                            <p>AI is enhancing your drawing...</p>
-                        </div>
-                    </div>
+                <div class="tool-group">
+                    <label for="brushSize">Size:</label>
+                    <input type="range" id="brushSize" min="1" max="50" value="5">
+                    <span id="sizeDisplay">5px</span>
+                </div>
+                <div class="tool-group">
+                    <label for="brushType">Tool:</label>
+                    <select id="brushType">
+                        <option value="brush">Brush</option>
+                        <option value="eraser">Eraser</option>
+                    </select>
                 </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <button class="btn btn-secondary" onclick="clearCanvas()">
-                    <span>🗑️</span>
-                    Clear Canvas
-                </button>
-                <button class="btn btn-primary" id="enhanceBtn" onclick="enhanceDrawing()">
-                    <span>✨</span>
-                    Enhance with AI
-                </button>
-                <button class="btn btn-success" id="downloadBtn" onclick="downloadImage()" disabled>
-                    <span>💾</span>
-                    Download Result
-                </button>
+                <button id="clearBtn" class="btn btn-secondary">Clear Drawing</button>
+                <button id="enhanceBtn" class="btn btn-primary">Enhance with AI</button>
+                <button id="downloadBtn" class="btn btn-success" disabled>Download Enhanced</button>
             </div>
 
             <!-- Messages -->
-            <div id="successMessage" class="message message-success"></div>
-            <div id="errorMessage" class="message message-error"></div>
-            <div id="infoMessage" class="message message-info"></div>
+            <div id="messageContainer"></div>
         </section>
 
         <!-- Tips Section -->
         <section class="tips-section">
-            <h2 class="section-title">💡 Drawing Tips</h2>
+            <h2 class="section-title">Tips for Better Drawings</h2>
             <div class="tips-grid">
                 <div class="tip-card">
+                    <div class="tip-icon">✏️</div>
+                    <h3 class="tip-title">Start Simple</h3>
+                    <p class="tip-description">Begin with basic shapes and gradually add details.</p>
+                </div>
+                <div class="tip-card">
                     <div class="tip-icon">🎨</div>
-                    <div class="tip-title">Start Simple</div>
-                    <div class="tip-description">Begin with basic shapes and outlines. The AI works best with clear, simple sketches that it can interpret and enhance.</div>
+                    <h3 class="tip-title">Use Contrast</h3>
+                    <p class="tip-description">Vary line weights and shading for depth.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">📏</div>
-                    <div class="tip-title">Use Clean Lines</div>
-                    <div class="tip-description">Try to draw with confident, clean strokes. Avoid excessive sketchy lines as they can confuse the AI enhancement process.</div>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">🔍</div>
-                    <div class="tip-title">Focus on Details</div>
-                    <div class="tip-description">Add key details and features that you want the AI to recognize and enhance. The more context you provide, the better the results.</div>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">🎯</div>
-                    <div class="tip-title">Practice Different Subjects</div>
-                    <div class="tip-description">Try drawing various subjects - faces, objects, animals, landscapes. Each type of drawing can produce unique and surprising AI enhancements.</div>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">⚡</div>
-                    <div class="tip-title">Experiment with Styles</div>
-                    <div class="tip-description">The AI can adapt to different drawing styles. Try sketching in different approaches to see how the enhancement varies.</div>
-                </div>
-                <div class="tip-card">
-                    <div class="tip-icon">💭</div>
-                    <div class="tip-title">Be Patient</div>
-                    <div class="tip-description">AI processing takes a moment. While waiting, think about how you might improve your next sketch based on the enhanced results.</div>
+                    <div class="tip-icon">📐</div>
+                    <h3 class="tip-title">Practice Proportions</h3>
+                    <p class="tip-description">Pay attention to relative sizes of elements.</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Created with ❤️ for creative minds | Powered by <strong><a href="#" target="_blank">AI Technology</a></strong></p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Transform your imagination into digital art with artificial intelligence</p>
+            <p>&copy; 2024 AI Doodle Enhancer. Powered by <a href="https://ai.google.dev/" target="_blank">Google Gemini AI</a></p>
         </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Enhancing your doodle with AI...</p>
+        </div>
     </div>
 
     <script>
