@@ -74,5 +74,6 @@ export default async function handler(req, res) {
       success: false, 
       error: error.message || 'Failed to process with Gemini AI' 
     });
+  
   }
 }
